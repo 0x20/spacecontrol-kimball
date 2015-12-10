@@ -1,0 +1,49 @@
+sitemap demo label="Whitespace"
+{
+
+	Frame label="Whitespace" {
+		Switch item=Space mappings=[OFF="Close"] // icon="Whitespace"
+	}
+
+	Frame  label="Computers" {
+		Switch item=AllComputers mappings=[OFF="All Off"] icon="computer"
+		Switch item=Barmaid mappings=[ON="On", OFF="Off"] icon="computer"
+		Switch item=Echelon mappings=[ON="On", OFF="Off"] icon="computer"
+		Switch item=RandomDude mappings=[ON="On", OFF="Off"] icon="computer"	
+	}
+	
+	Frame label="Gatekeeper" {
+		Switch	item=Gate  mappings=[ON="Open"] icon="garagedoor"
+		Text	item=ShowCaller icon="phone-icon"
+	}
+
+	Frame label="Other" {
+	
+		Text label="Audio / MPD" icon="music" {
+			Frame {
+				Text item=MusicInfo icon="music"
+				Switch item=StartStopView mappings=[OFF="Pause", ON="Play"] icon="musiccontrol"
+			}	
+		}
+		
+		Text label="Teracom" icon="light" {
+			Frame label="Teracom" {
+				Switch item=RelayOut1 mappings=[ON="On", OFF="Off"]
+				Switch item=RelayOut2 mappings=[ON="On", OFF="Off"]
+				Text item=DigitalIn1 icon="light"
+				Text item=DigitalIn2 icon="light"
+				Text item=Analog1
+				Text item=Analog2
+			}	
+		}
+
+		Text label="IP-Cam" icon="light" {
+			Frame label="IP-Cam" {
+				Switch item=CamRelay mappings=[ON="On", OFF="Off"]
+//				Text item=CamDI
+			}
+		}
+
+	}
+
+}
