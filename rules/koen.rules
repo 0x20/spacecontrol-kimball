@@ -40,7 +40,7 @@ when
 	Item PostCaller received update 
 then
 //	sendXbmcNotification("172.22.32.6", 8080, "Gate", PostCaller.toString())
-	kodi.sendCommand(PostCaller.toString)
+	kodi.sendCommand(PostCaller.state.toString)
 end 
 
 // == Lighting =================================================================================
