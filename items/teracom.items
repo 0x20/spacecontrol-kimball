@@ -1,0 +1,12 @@
+// Items for Teracom
+Switch RelayOut1		"Relay Output 1"					(group)		{ snmp="<[172.22.32.8:public:.1.3.6.1.4.1.38783.3.3.0:500:MAP(RelayState.map)] >[ON:172.22.32.8:private:.1.3.6.1.4.1.38783.3.3.0:1] >[OFF:172.22.32.8:private:.1.3.6.1.4.1.38783.3.3.0:0]" }
+Switch RelayOut2		"Relay Output 2"					(group)		{ snmp="<[172.22.32.8:public:.1.3.6.1.4.1.38783.3.5.0:500:MAP(RelayState.map)] >[ON:172.22.32.8:private:.1.3.6.1.4.1.38783.3.5.0:1] >[OFF:172.22.32.8:private:.1.3.6.1.4.1.38783.3.5.0:0]" }
+
+Switch DigitalIn1		"Digital Input 1 [%s]"				(group)		{ snmp="<[172.22.32.8:public:.1.3.6.1.4.1.38783.3.1.0:20:MAP(SwitchState.map)]" }
+Switch DigitalIn2		"Digital Input 2 [%s]"				(group)		{ snmp="<[172.22.32.8:public:.1.3.6.1.4.1.38783.3.2.0:20:MAP(SwitchState.map)]" }
+
+// Items for Teracom (snmp-read)
+//String Relay1			"Relay Output 1 [%s]"				(group)		{ snmp="<[172.22.32.200:public:.1.3.6.1.4.1.38783.3.3.0:1000:MAP(SwitchState.map)]"}
+//String Relay2			"Relay Output 2 [%s]"				(group)		{ snmp="<[172.22.32.200:public:.1.3.6.1.4.1.38783.3.5.0:1000:MAP(SwitchState.map)]"}
+String Analog1			"Analog Input 1 [%s]"				(group)		{ snmp="<[172.22.32.8:public:.1.3.6.1.4.1.38783.3.7.0:0]" }
+String Analog2			"Analog Input 2 [%s]"				(group)		{ snmp="<[172.22.32.8:public:.1.3.6.1.4.1.38783.3.8.0:0]" }

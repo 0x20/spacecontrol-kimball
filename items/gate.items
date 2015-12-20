@@ -1,0 +1,7 @@
+// Displays for Gate
+Switch	Gate			"Gate"								(group)		
+String	ShowCaller		"Last Caller [%s]"					(group)
+
+// Inputs for Gate 
+String PostCaller		""									(group)
+Switch GateOpen			""									(group)		{ http=">[ON:POST:http://172.22.32.3/cgi-bin/open]" }

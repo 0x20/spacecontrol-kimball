@@ -1,0 +1,7 @@
+// MPD
+String CurrentTrack		""									(group)		{ mpd="TITLE:audio:tracktitle" }
+String CurrentArtist	""									(group)		{ mpd="ARTIST:audio:trackartist" }
+
+String MusicInfo		"MPD [%s]"							(group)
+Switch StartStopView   	"Start/Stop"						(group)
+Switch StartStop       	"Start/Stop"						(group)		{ mpd="ON:audio:play, OFF:audio:stop" }

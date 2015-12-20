@@ -1,0 +1,5 @@
+// Space
+Switch Space			"Space"		(group)
+// Barmaid Display
+//String BarmaidLCD	""	(group) { http=">[*:POST:http://172.22.32.5:8080/CMD?LCDtext=%2$s]" }
+//Switch BarmaidLCDclear	""	(group) { http=">[ON:POST:http://172.22.32.5:8080/CMD?LCDclear=ON]" }
