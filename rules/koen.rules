@@ -11,9 +11,10 @@ import java.text.SimpleDateFormat
 rule "Space Status"
 when
 	Item AllComputers received update or
-	Item StartStop received update
+	Item StartStop received update or
+	Item RelayOut1 received update
 then
-	if ((AllComputers.state==ON) || (StartStop==ON)) {
+	if ((AllComputers.state==ON) || (StartStop==ON) || (RelayOut1==ON)) {
 		Space.postUpdate(ON)
 	} else {
 		Space.postUpdate(OFF)
@@ -27,6 +28,8 @@ then
 	if (Space.state==OFF) {
 		StartStop.sendCommand(OFF)
 		AllComputers.sendCommand(OFF)
+		RelayOut1.sendCommand(OFF)
+		RelayOut2.sendCommand(OFF)
 	}
 end
 
@@ -63,7 +66,7 @@ when
 then
 	Gate.setState(OPEN)
 	ShowCaller.postUpdate(PostCaller.state)
-	BarmaidLCD.sendCommand("Gate opened for:    " + PostCaller.state)
+//	BarmaidLCD.sendCommand("Gate opened for:    " + PostCaller.state)
 //	BarmaidLCD.sendCommand("sqdfqsdfqsdfqsdfqsdfqsd - GATE")
 //	BarmaidLCD.postUpdate("GATE: " + PostCaller.state)
 //	BarmaidLCD.postUpdate("GATE-sdfsdfsdf")
@@ -73,7 +76,7 @@ then
 	createTimer(now.plusSeconds(40)) [|
   		Gate.setState(CLOSED)
   		ShowCaller.postUpdate(" ")
-		BarmaidLCDclear.sendCommand(ON)
+//		BarmaidLCDclear.sendCommand(ON)
 	]
 end
 
