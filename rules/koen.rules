@@ -147,8 +147,10 @@ when
 	Item DigitalIn1 received command
 then
 	if (DigitalIn1.state==OFF) {
-                StartStop.sendCommand(OFF)
-                AllComputers.sendCommand(OFF)
+		StartStop.sendCommand(OFF)
+		AllComputers.sendCommand(OFF)
+		RelayOut1.sendCommand(OFF)
+		RelayOut2.sendCommand(OFF)
 	}
 end
 
