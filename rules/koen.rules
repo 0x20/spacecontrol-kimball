@@ -33,6 +33,14 @@ then
 	}
 end
 
+// == Kodi =====================================================================================
+
+rule ""
+when
+	Item PostCaller received update 
+then
+	sendXbmcNotification("172.22.32.6", 8080, "Gate", PostCaller.toString())
+end 
 
 // == Lighting =================================================================================
 

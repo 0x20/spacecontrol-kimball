@@ -1,5 +1,5 @@
 // Kodi notifications
-String	kodi	"Kodi"	(group)	{ xbmc=">[172.22.32.6|GUI.ShowNotification]" }
+String	kodi	"Kodi"	(group)	{ xbmc=">[#whitespace|GUI.ShowNotification]" }
 
-String	kodiState	"Kodi State"	(group)	{ xbmc="<[172.22.32.6|Player.State]" }
-String	kodiTitle	"Kodi Title"	(group)	{ xbmc="<[172.22.32.6|Player.Title]" }
+String	kodiState	"Kodi State"	(group)	{ xbmc="<[#whitespace|Player.State]" }
+String	kodiTitle	"Kodi Title"	(group)	{ xbmc="<[#whitespace|Player.Title]" }
