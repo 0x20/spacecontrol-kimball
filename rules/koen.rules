@@ -41,7 +41,7 @@ when
 	Item DigitalIn2 changed
 then
 	if (RelayOut1.state==ON) {
-		RelayOut2.sendCommand(OFF)
+		RelayOut1.sendCommand(OFF)
 	} else if (RelayOut1.state==OFF) {
 		RelayOut1.sendCommand(ON)
 	}
