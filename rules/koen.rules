@@ -109,10 +109,10 @@ when
 	Item Door received update ON
 then
 	RelayOut2.sendCommand(ON)
+	Door.setState(OPEN)
 	createTimer(now.plusSeconds(30)) [|
-//  		Gate.setState(CLOSED)
   		RelayOut2.sendCommand(OFF)
-//		BarmaidLCDclear.sendCommand(ON)
+  		Door.setState(CLOSED)
 	]	
 end
 
