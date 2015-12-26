@@ -15,7 +15,7 @@ sitemap demo label="Whitespace"
 	Frame label="Access Control" {
 		Switch	item=Gate mappings=[ON="Open"] icon="garagedoor"
 		Text	item=ShowCaller icon="phone-icon"
-		Switch	item=Door mappings=[ON="Open", OFF="Closed"] icon="door"
+		Switch	item=Door mappings=[ON="Open"] icon="door"
 	}
 
 	Frame label="Other" {
