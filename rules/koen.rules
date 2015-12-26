@@ -110,7 +110,7 @@ when
 then
 	RelayOut2.sendCommand(ON)
 	Door.setState(OPEN)
-	createTimer(now.plusSeconds(30)) [|
+	createTimer(now.plusSeconds(5)) [|
   		RelayOut2.sendCommand(OFF)
   		Door.setState(CLOSED)
 	]	
