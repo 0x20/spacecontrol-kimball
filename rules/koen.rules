@@ -102,6 +102,20 @@ then
 	]
 end
 
+// == Door =====================================================================================
+
+rule "Open Door from webinterface"
+when
+	Item Door received update ON
+then
+	RelayOut2.sendCommand(ON)
+	createTimer(now.plusSeconds(30)) [|
+//  		Gate.setState(CLOSED)
+  		RelayOut2.sendCommand(OFF)
+//		BarmaidLCDclear.sendCommand(ON)
+	]	
+end
+
 // == MPD ======================================================================================
 
 rule
