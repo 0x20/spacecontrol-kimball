@@ -1,5 +1,5 @@
 // Computers
 Group:Switch:SUM(ON, OFF) 		AllComputers 		"All Computers" 			(All)
-Switch Barmaid "Barmaid" (AllComputers) { nh="172.22.32.5", wol="172.22.32.255#00:11:25:05:ce:ef", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@172.22.32.5 'sudo shutdown -h now'", autoupdate="false" }
-Switch Echelon "Echelon" (AllComputers) { nh="172.22.32.6", wol="172.22.32.255#d4:85:64:18:7a:10", xbmc=">[#whitespace|System.Shutdown]", autoupdate="false" }
-Switch RandomDude "Random Dude" (AllComputers) { nh="172.22.32.7", wol="172.22.32.255#d4:85:64:aa:4c:56", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@172.22.32.7 'sudo shutdown -h now'", autoupdate="false" }
+Switch Barmaid		"Barmaid"		(AllComputers) { nh="172.22.32.5", wol="172.22.32.255#00:11:25:05:ce:ef", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@172.22.32.5 'sudo shutdown -h now'", autoupdate="false" }
+Switch Echelon		"Echelon"		(AllComputers) { nh="172.22.32.6", wol="172.22.32.255#d4:85:64:18:7a:10", xbmc=">[#whitespace|System.Shutdown]", autoupdate="false" }
+Switch RandomDude	"Random Dude"	(AllComputers) { nh="172.22.32.7", wol="172.22.32.255#d4:85:64:aa:4c:56", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@172.22.32.7 'sudo shutdown -h now'", autoupdate="false" }

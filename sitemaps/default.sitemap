@@ -12,9 +12,10 @@ sitemap demo label="Whitespace"
 		Switch item=RandomDude mappings=[ON="On", OFF="Off"] icon="computer"	
 	}
 	
-	Frame label="Gatekeeper" {
-		Switch	item=Gate  mappings=[ON="Open"] icon="garagedoor"
+	Frame label="Access Control" {
+		Switch	item=Gate mappings=[ON="Open"] icon="garagedoor"
 		Text	item=ShowCaller icon="phone-icon"
+		Switch	item=Door mappings=[ON="Open"] icon="door"
 	}
 
 	Frame label="Other" {
