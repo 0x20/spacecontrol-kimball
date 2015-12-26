@@ -15,7 +15,7 @@ sitemap demo label="Whitespace"
 	Frame label="Access Control" {
 		Switch	item=Gate mappings=[ON="Open"] icon="garagedoor"
 		Text	item=ShowCaller icon="phone-icon"
-		Switch	item=Door mappings=[ON="Open"] icon="door"
+		Switch	item=Door mappings=[ON="Open", OFF="Closed"] icon="door"
 	}
 
 	Frame label="Other" {
@@ -41,7 +41,6 @@ sitemap demo label="Whitespace"
 		Text label="IP-Cam" icon="light" {
 			Frame label="IP-Cam" {
 				Switch item=CamRelay mappings=[ON="On", OFF="Off"]
-//				Text item=CamDI
 			}
 		}
 
