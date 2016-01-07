@@ -40,7 +40,7 @@ when
 	Item PostCaller received update
 then
 	kodi.sendCommand(PostCaller.state.toString)
-	executeCommandLine("/etc/openhab/configurations/flappers.sh" + PostCaller.state.toString)
+	executeCommandLine("/etc/openhab/configurations/flappers.sh " + PostCaller.state.toString)
 end 
 
 //// == Lighting =================================================================================
