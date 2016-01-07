@@ -8,30 +8,30 @@ import java.text.SimpleDateFormat
 
 // == Space ====================================================================================
 
-rule "Space Status"
-when
-	Item AllComputers received update or
-	Item StartStop received update or
-	Item RelayOut1 received update
-then
-	if ((AllComputers.state==ON) || (StartStop==ON) || (RelayOut1==ON)) {
-		Space.postUpdate(ON)
-	} else {
-		Space.postUpdate(OFF)
-	}
-end	
-
-rule "Space Button pushed"
-when
-	Item Space received command
-then
-	if (Space.state==OFF) {
-		StartStop.sendCommand(OFF)
-		AllComputers.sendCommand(OFF)
-		RelayOut1.sendCommand(OFF)
-		RelayOut2.sendCommand(OFF)
-	}
-end
+//rule "Space Status"
+//when
+//	Item AllComputers received update or
+//	Item StartStop received update or
+//	Item RelayOut1 received update
+//then
+//	if ((AllComputers.state==ON) || (StartStop==ON) || (RelayOut1==ON)) {
+//		Space.postUpdate(ON)
+//	} else {
+//		Space.postUpdate(OFF)
+//	}
+//end	
+//
+//rule "Space Button pushed"
+//when
+//	Item Space received command
+//then
+//	if (Space.state==OFF) {
+//		StartStop.sendCommand(OFF)
+//		AllComputers.sendCommand(OFF)
+//		RelayOut1.sendCommand(OFF)
+//		RelayOut2.sendCommand(OFF)
+//	}
+//end
 
 // == Kodi =====================================================================================
 
@@ -43,137 +43,137 @@ then
 	executeCommandLine("/etc/openhab/configurations/flappers.sh" + PostCaller.state.toString)
 end 
 
-// == Lighting =================================================================================
-
-rule "Front lighting"
-when
-	Item DigitalIn2 changed
-then
-	if (RelayOut1.state==ON) {
-		RelayOut1.sendCommand(OFF)
-	} else if (RelayOut1.state==OFF) {
-		RelayOut1.sendCommand(ON)
-	}
-end
-
-// == Computers ================================================================================
-
-rule "AllComputers Status"
-when
-	Item Barmaid received update or
-	Item Echelon received update or
-	Item RandomDude received update
-then
-	if (Barmaid.state==ON || RandomDude.state==ON || Echelon.state==ON) { 
-		AllComputers.postUpdate(ON)
-	} else {
-		AllComputers.postUpdate(OFF)
-	}
-end
-
-// == Gate =====================================================================================
-
-rule "Gate openHAB button pushed"
-when
-	Item Gate received update
-then
-	if (Gate.state==ON) {
-		PostCaller.postUpdate("Opened from web")
-		GateOpen.sendCommand(ON)
-	}
-end 
-
-rule "Gate status timer"
-when
-	Item PostCaller received update 
-then
-	Gate.setState(OPEN)
-	ShowCaller.postUpdate(PostCaller.state)
-//	BarmaidLCD.sendCommand("Gate opened for:    " + PostCaller.state)
-//	BarmaidLCD.sendCommand("sqdfqsdfqsdfqsdfqsdfqsd - GATE")
-//	BarmaidLCD.postUpdate("GATE: " + PostCaller.state)
-//	BarmaidLCD.postUpdate("GATE-sdfsdfsdf")
-
-//	BarmaidLCDclear.sendCommand(OFF)
-
-	createTimer(now.plusSeconds(40)) [|
-  		Gate.setState(CLOSED)
-  		ShowCaller.postUpdate(" ")
-//		BarmaidLCDclear.sendCommand(ON)
-	]
-end
-
-// == Door =====================================================================================
-
-rule "Open Door from webinterface"
-when
-	Item Door received update ON
-then
-	RelayOut2.sendCommand(ON)
-	Door.setState(OPEN)
-	createTimer(now.plusSeconds(5)) [|
-  		RelayOut2.sendCommand(OFF)
-  		Door.setState(CLOSED)
-	]	
-end
-
-// == MPD ======================================================================================
-
-rule
-	"start system"
-when
-	 System started
-then
-	 MusicInfo.postUpdate(" ")
-	 StartStopView.postUpdate(OFF)
-end
-
-rule "MPD on/off"
-when 
-	Item StartStopView received update
-then
-	if (StartStopView.state==ON) {
-		if (RandomDude.state==OFF) {
-			RandomDude.sendCommand(ON)
-		} else {
-			StartStop.sendCommand(ON)
-		}
-	} else {
-		StartStop.sendCommand(OFF)
-	}
-end 
-
-rule "concat"
-when
-	Item CurrentTrack received update or
-	Item CurrentArtist received update
-then
-
-	var mpdText = ""
-
-	if ((CurrentTrack.state.toString != "") && (CurrentArtist.state.toString == "")) {
-		mpdText = CurrentTrack.state.toString
-	} else if ((CurrentTrack.state.toString == "") && (CurrentArtist.state.toString != "")) {
-		mpdText = CurrentArtist.state.toString
-	} else if ((CurrentTrack.state.toString != "") && (CurrentArtist.state.toString != "")) {
-		mpdText = CurrentTrack.state.toString + " - " + CurrentArtist.state.toString
-	}
-
-	MusicInfo.postUpdate(mpdText)
-
-end
-
-// == Teracom ==================================================================================
-
-rule "Teracom"
-when
-	Item DigitalIn1 received command
-then
-	if (DigitalIn1.state==OFF) {
-		StartStop.sendCommand(OFF)
-		AllComputers.sendCommand(OFF)
-		RelayOut1.sendCommand(OFF)
-		RelayOut2.sendCommand(OFF)
-	}
-end
-
+//// == Lighting =================================================================================
+//
+//rule "Front lighting"
+//when
+//	Item DigitalIn2 changed
+//then
+//	if (RelayOut1.state==ON) {
+//		RelayOut1.sendCommand(OFF)
+//	} else if (RelayOut1.state==OFF) {
+//		RelayOut1.sendCommand(ON)
+//	}
+//end
+//
+//// == Computers ================================================================================
+//
+//rule "AllComputers Status"
+//when
+//	Item Barmaid received update or
+//	Item Echelon received update or
+//	Item RandomDude received update
+//then
+//	if (Barmaid.state==ON || RandomDude.state==ON || Echelon.state==ON) { 
+//		AllComputers.postUpdate(ON)
+//	} else {
+//		AllComputers.postUpdate(OFF)
+//	}
+//end
+//
+//// == Gate =====================================================================================
+//
+//rule "Gate openHAB button pushed"
+//when
+//	Item Gate received update
+//then
+//	if (Gate.state==ON) {
+//		PostCaller.postUpdate("Opened from web")
+//		GateOpen.sendCommand(ON)
+//	}
+//end 
+//
+//rule "Gate status timer"
+//when
+//	Item PostCaller received update 
+//then
+//	Gate.setState(OPEN)
+//	ShowCaller.postUpdate(PostCaller.state)
+////	BarmaidLCD.sendCommand("Gate opened for:    " + PostCaller.state)
+////	BarmaidLCD.sendCommand("sqdfqsdfqsdfqsdfqsdfqsd - GATE")
+////	BarmaidLCD.postUpdate("GATE: " + PostCaller.state)
+////	BarmaidLCD.postUpdate("GATE-sdfsdfsdf")
+//
+////	BarmaidLCDclear.sendCommand(OFF)
+//
+//	createTimer(now.plusSeconds(40)) [|
+//  		Gate.setState(CLOSED)
+//  		ShowCaller.postUpdate(" ")
+////		BarmaidLCDclear.sendCommand(ON)
+//	]
+//end
+//
+//// == Door =====================================================================================
+//
+//rule "Open Door from webinterface"
+//when
+//	Item Door received update ON
+//then
+//	RelayOut2.sendCommand(ON)
+//	Door.setState(OPEN)
+//	createTimer(now.plusSeconds(5)) [|
+//  		RelayOut2.sendCommand(OFF)
+//  		Door.setState(CLOSED)
+//	]	
+//end
+//
+//// == MPD ======================================================================================
+//
+//rule
+//	"start system"
+//when
+//	 System started
+//then
+//	 MusicInfo.postUpdate(" ")
+//	 StartStopView.postUpdate(OFF)
+//end
+//
+//rule "MPD on/off"
+//when 
+//	Item StartStopView received update
+//then
+//	if (StartStopView.state==ON) {
+//		if (RandomDude.state==OFF) {
+//			RandomDude.sendCommand(ON)
+//		} else {
+//			StartStop.sendCommand(ON)
+//		}
+//	} else {
+//		StartStop.sendCommand(OFF)
+//	}
+//end 
+//
+//rule "concat"
+//when
+//	Item CurrentTrack received update or
+//	Item CurrentArtist received update
+//then
+//
+//	var mpdText = ""
+//
+//	if ((CurrentTrack.state.toString != "") && (CurrentArtist.state.toString == "")) {
+//		mpdText = CurrentTrack.state.toString
+//	} else if ((CurrentTrack.state.toString == "") && (CurrentArtist.state.toString != "")) {
+//		mpdText = CurrentArtist.state.toString
+//	} else if ((CurrentTrack.state.toString != "") && (CurrentArtist.state.toString != "")) {
+//		mpdText = CurrentTrack.state.toString + " - " + CurrentArtist.state.toString
+//	}
+//
+//	MusicInfo.postUpdate(mpdText)
+//
+//end
+//
+//// == Teracom ==================================================================================
+//
+//rule "Teracom"
+//when
+//	Item DigitalIn1 received command
+//then
+//	if (DigitalIn1.state==OFF) {
+//		StartStop.sendCommand(OFF)
+//		AllComputers.sendCommand(OFF)
+//		RelayOut1.sendCommand(OFF)
+//		RelayOut2.sendCommand(OFF)
+//	}
+//end
+//
