@@ -37,7 +37,7 @@ end
 
 rule ""
 when
-	Item PostCaller received update 
+	Item PostCaller received update
 then
 	kodi.sendCommand(PostCaller.state.toString)
 	executeCommandLine("echo " + PostCaller.state.toString + " | nc 172.22.32.124 1337")
