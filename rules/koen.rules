@@ -109,10 +109,9 @@ rule "Open Door from webinterface"
 when
 	Item Door received update ON
 then
-	RelayOut2.sendCommand(ON)
 	Door.setState(OPEN)
+	sendHttpGetRequest("http://172.22.32.10:8080/CMD?Door=ON")
 	createTimer(now.plusSeconds(5)) [|
-  		RelayOut2.sendCommand(OFF)
   		Door.setState(CLOSED)
 	]	
 end
