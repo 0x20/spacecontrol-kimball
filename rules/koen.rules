@@ -107,51 +107,51 @@ then
 end
 
 // == MPD ======================================================================================
-
-rule
-	"start system"
-when
-	 System started
-then
-	 MusicInfo.postUpdate(" ")
-	 StartStopView.postUpdate(OFF)
-end
-
-rule "MPD on/off"
-when 
-	Item StartStopView received update
-then
-	if (StartStopView.state==ON) {
-		if (RandomDude.state==OFF) {
-			RandomDude.sendCommand(ON)
-		} else {
-			StartStop.sendCommand(ON)
-		}
-	} else {
-		StartStop.sendCommand(OFF)
-	}
-end 
-
-rule "concat"
-when
-	Item CurrentTrack received update or
-	Item CurrentArtist received update
-then
-
-	var mpdText = ""
-
-	if ((CurrentTrack.state.toString != "") && (CurrentArtist.state.toString == "")) {
-		mpdText = CurrentTrack.state.toString
-	} else if ((CurrentTrack.state.toString == "") && (CurrentArtist.state.toString != "")) {
-		mpdText = CurrentArtist.state.toString
-	} else if ((CurrentTrack.state.toString != "") && (CurrentArtist.state.toString != "")) {
-		mpdText = CurrentTrack.state.toString + " - " + CurrentArtist.state.toString
-	}
-
-	MusicInfo.postUpdate(mpdText)
-
-end
-
+//
+//rule
+//	"start system"
+//when
+//	 System started
+//then
+//	 MusicInfo.postUpdate(" ")
+//	 StartStopView.postUpdate(OFF)
+//end
+//
+//rule "MPD on/off"
+//when 
+//	Item StartStopView received update
+//then
+//	if (StartStopView.state==ON) {
+//		if (RandomDude.state==OFF) {
+//			RandomDude.sendCommand(ON)
+//		} else {
+//			StartStop.sendCommand(ON)
+//		}
+//	} else {
+//		StartStop.sendCommand(OFF)
+//	}
+//end 
+//
+//rule "concat"
+//when
+//	Item CurrentTrack received update or
+//	Item CurrentArtist received update
+//then
+//
+//	var mpdText = ""
+//
+//	if ((CurrentTrack.state.toString != "") && (CurrentArtist.state.toString == "")) {
+//		mpdText = CurrentTrack.state.toString
+//	} else if ((CurrentTrack.state.toString == "") && (CurrentArtist.state.toString != "")) {
+//		mpdText = CurrentArtist.state.toString
+//	} else if ((CurrentTrack.state.toString != "") && (CurrentArtist.state.toString != "")) {
+//		mpdText = CurrentTrack.state.toString + " - " + CurrentArtist.state.toString
+//	}
+//
+//	MusicInfo.postUpdate(mpdText)
+//
+//end
+//
 // == Teracom ==================================================================================
 
 rule "Teracom"
