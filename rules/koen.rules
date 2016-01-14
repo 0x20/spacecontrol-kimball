@@ -41,20 +41,10 @@ when
 then
 	kodi.sendCommand(PostCaller.state.toString)
 	executeCommandLine("/etc/openhab/configurations/flappers.sh " + PostCaller.state.toString)
+        createTimer(now.plusSeconds(40)) [|
+		executeCommandLine("/etc/openhab/configurations/flappers.sh reset")
+        ]
 end 
-
-// == Lighting =================================================================================
-
-rule "Front lighting"
-when
-	Item DigitalIn2 changed
-then
-	if (RelayOut1.state==ON) {
-		RelayOut1.sendCommand(OFF)
-	} else if (RelayOut1.state==OFF) {
-		RelayOut1.sendCommand(ON)
-	}
-end
 
 // == Computers ================================================================================
 
