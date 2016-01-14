@@ -21,17 +21,17 @@ then
 	}
 end	
 
-//rule "Space Button pushed"
-//when
-//	Item Space received command
-//then
-//	if (Space.state==OFF) {
+rule "Space Button pushed"
+when
+	Item Space received command
+then
+	if (Space.state==OFF) {
 //		StartStop.sendCommand(OFF)
-//		AllComputers.sendCommand(OFF)
+		AllComputers.sendCommand(OFF)
 //		RelayOut1.sendCommand(OFF)
 //		RelayOut2.sendCommand(OFF)
-//	}
-//end
+	}
+end
 
 // == Kodi =====================================================================================
 
