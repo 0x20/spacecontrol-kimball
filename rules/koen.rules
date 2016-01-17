@@ -40,9 +40,9 @@ when
 	Item PostCaller received update
 then
 	kodi.sendCommand(PostCaller.state.toString)
-	executeCommandLine("/etc/openhab/configurations/flappers.sh " + PostCaller.state.toString)
+	executeCommandLine("/etc/openhab/configurations/bash-scripts/flappers.sh " + PostCaller.state.toString)
         createTimer(now.plusSeconds(40)) [|
-		executeCommandLine("/etc/openhab/configurations/flappers.sh reset")
+		executeCommandLine("/etc/openhab/configurations/bash-scripts/flappers.sh reset")
         ]
 end 
 
