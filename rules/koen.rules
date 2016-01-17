@@ -10,11 +10,11 @@ import java.text.SimpleDateFormat
 
 rule "Space Status"
 when
-	Item AllComputers received update or
-	Item StartStop received update // or
+	Item AllComputers received update //or
+//	Item StartStop received update // or
 //	Item RelayOut1 received update
 then
-	if ((AllComputers.state==ON) || (StartStop==ON)) {// || (RelayOut1==ON)) {
+	if (AllComputers.state==ON) { //|| (StartStop==ON)) {// || (RelayOut1==ON)) {
 		Space.postUpdate(ON)
 	} else {
 		Space.postUpdate(OFF)
@@ -155,15 +155,15 @@ end
 //
 // == Teracom ==================================================================================
 
-rule "Teracom"
-when
-	Item DigitalIn1 received command
-then
-	if (DigitalIn1.state==OFF) {
-		StartStop.sendCommand(OFF)
-		AllComputers.sendCommand(OFF)
+//rule "Teracom"
+//when
+//	Item DigitalIn1 received command
+//then
+//	if (DigitalIn1.state==OFF) {
+//		StartStop.sendCommand(OFF)
+//		AllComputers.sendCommand(OFF)
 //		RelayOut1.sendCommand(OFF)
 //		RelayOut2.sendCommand(OFF)
-	}
-end
+//	}
+//end
 
