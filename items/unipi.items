@@ -1,4 +1,4 @@
 // Links to the unipi in the fusebox
 
-Switch  FrontLight      "Front Room Front Lights"     (Relays)        { exec="ON:/bin/sh@@-c@@/usr/bin/wget -qO- http://172.22.32.10/rest/relay/3 --post-data='value=1' ,OFF:/bin/sh@@-c@@/usr/bin/wget -qO- http://172.22.32.10/rest/relay/3 --post-data='value=0'" }
-Switch  BackLight       "Front Room Back Lights"      (Relays)        { exec="ON:/bin/sh@@-c@@/usr/bin/wget -qO- http://172.22.32.10/rest/relay/4 --post-data='value=1' ,OFF:/bin/sh@@-c@@/usr/bin/wget -qO- http://172.22.32.10/rest/relay/4 --post-data='value=0'" }
+Switch FrontLight      "Front Room Front Lights"	 	(group)	{ http=">[ON:GET:http://172.22.32.10:8080/CMD?FrontLight=ON] >[OFF:GET:http://172.22.32.10:8080/CMD?FrontLight=OFF]" }
+Switch BackLight       "Front Room Back Lights"	    	(group)	{ http=">[ON:GET:http://172.22.32.10:8080/CMD?BackLight=ON] >[OFF:GET:http://172.22.32.10:8080/CMD?BackLight=OFF]" }
