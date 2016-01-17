@@ -10,6 +10,11 @@ sitemap demo label="Whitespace"
 		Text	item=ShowCaller icon="phone-icon"
 		Switch	item=Door mappings=[ON="Open"] icon="door"
 	}
+
+	Frame label="Lighting" {
+		Switch item=FrontLight mappings=[ON="On", OFF="Off"]
+		Switch item=BackLight mappings=[ON="On", OFF="Off"]
+	}
 	
 	Frame  label="Computers" {
 		Switch item=AllComputers mappings=[OFF="All Off"] icon="computer"

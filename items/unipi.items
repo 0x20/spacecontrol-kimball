@@ -1,0 +1,5 @@
+// Links to the unipi in the fusebox
+
+//Switch CamRelay		"IP-Cam"	 	(group)	{ http=">[ON:GET:http://172.22.32.9/cgi-bin/setdo.cgi?do=H] >[OFF:GET:http://172.22.32.9/cgi-bin/setdo.cgi?do=L]" }
+Switch  FrontLight      "Front Room Front Lights"     (Relays)        { exec="ON:/bin/sh@@-c@@/usr/bin/wget -qO- http://localhost/rest/relay/3 --post-data='value=1' ,OFF:/bin/sh@@-c@@/usr/bin/wget -qO- http://localhost/rest/relay/3 --post-data='value=0'" }
+Switch  BackLight       "Front Room Back Lights"      (Relays)        { exec="ON:/bin/sh@@-c@@/usr/bin/wget -qO- http://localhost/rest/relay/4 --post-data='value=1' ,OFF:/bin/sh@@-c@@/usr/bin/wget -qO- http://localhost/rest/relay/4 --post-data='value=0'" }
