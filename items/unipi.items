@@ -1,4 +1,7 @@
 // Links to the unipi in the fusebox
 
-Switch FrontLight      "Front Room Front Lights"	 	(group)	{ http=">[ON:GET:http://172.22.32.10:8080/CMD?FrontLight=ON] >[OFF:GET:http://172.22.32.10:8080/CMD?FrontLight=OFF]", autoupdate="false"  }
-Switch BackLight       "Front Room Back Lights"	    	(group)	{ http=">[ON:GET:http://172.22.32.10:8080/CMD?BackLight=ON] >[OFF:GET:http://172.22.32.10:8080/CMD?BackLight=OFF]", autoupdate="false"  }
+Switch FrontLight      "Front Room Front Lights"	 	(group)	{ http=">[ON:GET:http://172.22.32.10:8080/CMD?FrontLight=ON] >[OFF:GET:http://172.22.32.10:8080/CMD?FrontLight=OFF]", autoupdate="false" }
+Switch BackLight       "Front Room Back Lights"	    	(group)	{ http=">[ON:GET:http://172.22.32.10:8080/CMD?BackLight=ON] >[OFF:GET:http://172.22.32.10:8080/CMD?BackLight=OFF]", autoupdate="false" }
+
+Switch PowerCeiling    "Front Room Power Ceiling"	 	(group)	{ http=">[ON:GET:http://172.22.32.10:8080/CMD?PowerCeiling=ON]", autoupdate="false" }
+Switch PowerWall       "Front Room Power Wall"	 	    (group)	{ http=">[ON:GET:http://172.22.32.10:8080/CMD?PowerWall=ON]", autoupdate="false" }
