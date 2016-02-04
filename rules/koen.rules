@@ -28,6 +28,8 @@ then
 	if (Space.state==OFF) {
 //		StartStop.sendCommand(OFF)
 		AllComputers.sendCommand(OFF)
+		Thread::sleep(15000)
+		executeCommandLine("/bin/sh@@-c@@/usr/bin/ssh shutdownuser@echelon 'sudo shutdown -h now'")
 //		RelayOut1.sendCommand(OFF)
 //		RelayOut2.sendCommand(OFF)
 	}
