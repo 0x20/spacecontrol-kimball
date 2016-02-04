@@ -17,8 +17,8 @@ sitemap demo label="Whitespace"
 	}
 	
 	Frame label="Power" {
-		Switch item=PowerCeiling mappings=[ON="on"]
-		Switch item=PowerWall mappings=[ON="on"]
+		Switch item=PowerCeiling mappings=[ON="On"]
+		Switch item=PowerWall mappings=[ON="On"]
 	}
 	
 	Frame  label="Computers" {
