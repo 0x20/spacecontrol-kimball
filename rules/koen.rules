@@ -53,9 +53,8 @@ when
 then
 	kodi.sendCommand(PostCaller.state.toString)
 	executeCommandLine("/etc/openhab/configurations/flappers.sh " + PostCaller.state.toString)
-        createTimer(now.plusSeconds(40)) [|
-		executeCommandLine("/etc/openhab/configurations/flappers.sh reset")
-        ]
+   	Thread::sleep(40000)
+	executeCommandLine("/etc/openhab/configurations/flappers.sh reset")
 end 
 
 // == Computers ================================================================================
@@ -98,12 +97,10 @@ then
 //	BarmaidLCD.postUpdate("GATE-sdfsdfsdf")
 
 //	BarmaidLCDclear.sendCommand(OFF)
-
-	createTimer(now.plusSeconds(40)) [|
-  		Gate.setState(CLOSED)
-  		ShowCaller.postUpdate(" ")
+	Thread::sleep(40000)
+  	Gate.setState(CLOSED)
+  	ShowCaller.postUpdate(" ")
 //		BarmaidLCDclear.sendCommand(ON)
-	]
 end
 
 // == Door =====================================================================================
@@ -113,10 +110,9 @@ when
 	Item Door received update ON
 then
 	Door.setState(OPEN)
-	sendHttpGetRequest("http://172.22.32.10:8080/CMD?Door=ON")
-	createTimer(now.plusSeconds(5)) [|
-  		Door.setState(CLOSED)
-	]	
+	sendHttpGetRequest("http://172.22.32.10:8080/CMD?door=ON")
+	Thread::sleep(5000)
+  	Door.setState(CLOSED)
 end
 
 // == MPD ======================================================================================
