@@ -6,34 +6,34 @@ import java.util.Date
 import java.util.TimeZone
 import java.text.SimpleDateFormat
 
-// == Space ====================================================================================
-
-rule "Space Status"
-when
-	Item AllComputers received update //or
-//	Item StartStop received update // or
-//	Item RelayOut1 received update
-then
-	if (AllComputers.state==ON) { //|| (StartStop==ON)) {// || (RelayOut1==ON)) {
-		Space.postUpdate(ON)
-	} else {
-		Space.postUpdate(OFF)
-	}
-end	
-
-rule "Space Button pushed"
-when
-	Item Space received command
-then
-	if (Space.state==OFF) {
-//		StartStop.sendCommand(OFF)
-		AllComputers.sendCommand(OFF)
-		Thread::sleep(15000)
-		executeCommandLine("/bin/sh@@-c@@/usr/bin/ssh shutdownuser@echelon 'sudo shutdown -h now'")
-//		RelayOut1.sendCommand(OFF)
-//		RelayOut2.sendCommand(OFF)
-	}
-end
+//// == Space ====================================================================================
+//
+//rule "Space Status"
+//when
+//	Item AllComputers received update //or
+////	Item StartStop received update // or
+////	Item RelayOut1 received update
+//then
+//	if (AllComputers.state==ON) { //|| (StartStop==ON)) {// || (RelayOut1==ON)) {
+//		Space.postUpdate(ON)
+//	} else {
+//		Space.postUpdate(OFF)
+//	}
+//end	
+//
+//rule "Space Button pushed"
+//when
+//	Item Space received command
+//then
+//	if (Space.state==OFF) {
+////		StartStop.sendCommand(OFF)
+//		AllComputers.sendCommand(OFF)
+//		Thread::sleep(15000)
+//		executeCommandLine("/bin/sh@@-c@@/usr/bin/ssh shutdownuser@echelon 'sudo shutdown -h now'")
+////		RelayOut1.sendCommand(OFF)
+////		RelayOut2.sendCommand(OFF)
+//	}
+//end
 
 // == Kodi =====================================================================================
 

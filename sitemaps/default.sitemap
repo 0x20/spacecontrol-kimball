@@ -1,9 +1,9 @@
 sitemap demo label="Whitespace"
 {
 
-	Frame label="Whitespace" {
-		Switch item=Space mappings=[OFF="Close"] // icon="Whitespace"
-	}
+//	Frame label="Whitespace" {
+//		Switch item=Space mappings=[OFF="Close"] // icon="Whitespace"
+//	}
 	
 	Frame label="Access Control" {
 		Switch	item=Gate mappings=[ON="Open"] icon="garagedoor"
