@@ -6,6 +6,16 @@ import java.util.Date
 import java.util.TimeZone
 import java.text.SimpleDateFormat
 
+rule
+	"start system"
+when
+	 System started
+then
+	executeCommandLine("chmod +x /etc/openhab/configurations/flappers.sh")
+	executeCommandLine("/etc/openhab/configurations/flappers.sh")
+end
+
+
 //// == Space ====================================================================================
 //
 //rule "Space Status"
