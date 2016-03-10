@@ -110,7 +110,7 @@ when
 	Item Door received update ON
 then
 	Door.setState(OPEN)
-	sendHttpGetRequest("http://172.22.32.10:8080/CMD?door=ON")
+	sendHttpGetRequest("http://unipi:8080/CMD?door=ON")
 	Thread::sleep(5000)
   	Door.setState(CLOSED)
 end

@@ -1,2 +1,2 @@
 // Items for IP-Cam DCS-2100+
-Switch CamRelay		"IP-Cam"	 	(group)	{ http=">[ON:GET:http://172.22.32.9/cgi-bin/setdo.cgi?do=H] >[OFF:GET:http://172.22.32.9/cgi-bin/setdo.cgi?do=L]" }
+Switch CamRelay		"IP-Cam"	 	(group)	{ http=">[ON:GET:http://snakeeyes/cgi-bin/setdo.cgi?do=H] >[OFF:GET:http://snakeeyes/cgi-bin/setdo.cgi?do=L]" }
