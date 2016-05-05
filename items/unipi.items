@@ -1,7 +1,9 @@
 // Links to the unipi in the fusebox
 
-Switch FrontLight      "Front Room Front Lights"	 	(group)	{ http=">[ON:GET:http://unipi:8080/CMD?frontLight=ON] >[OFF:GET:http://unipi:8080/CMD?frontLight=OFF]", autoupdate="false" }
-Switch BackLight       "Front Room Back Lights"	    	(group)	{ http=">[ON:GET:http://unipi:8080/CMD?backLight=ON] >[OFF:GET:http://unipi:8080/CMD?backLight=OFF]", autoupdate="false" }
+Switch FrontLight		"Front Room Front Lights"	(group)	{ http=">[ON:GET:http://unipi:8080/CMD?frontLight=ON] >[OFF:GET:http://unipi:8080/CMD?frontLight=OFF]", autoupdate="false" }
+Switch BackLight		"Front Room Back Lights"	(group)	{ http=">[ON:GET:http://unipi:8080/CMD?backLight=ON] >[OFF:GET:http://unipi:8080/CMD?backLight=OFF]", autoupdate="false" }
 
-Switch PowerCeiling    "Front Room Power Ceiling"	 	(group)	{ http=">[ON:GET:http://unipi:8080/CMD?powerCeiling=ON]", autoupdate="false" }
-Switch PowerWall       "Front Room Power Wall"	 	    (group)	{ http=">[ON:GET:http://unipi:8080/CMD?powerWall=ON]", autoupdate="false" }
+Switch PowerCeiling		"Front Room Power Ceiling"	(group)	{ http=">[ON:GET:http://unipi:8080/CMD?powerCeiling=ON]", autoupdate="false" }
+Switch PowerWall		"Front Room Power Wall"		(group)	{ http=">[ON:GET:http://unipi:8080/CMD?powerWall=ON]", autoupdate="false" }
+
+Switch Roof				"Roof"						(group) { http=">[ON:GET:http://unipi:8080/CMD?roof=ON] >[OFF:GET:http://unipi:8080/CMD?roof=OFF]", autoupdate="false" }

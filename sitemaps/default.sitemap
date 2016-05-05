@@ -11,14 +11,10 @@ sitemap demo label="Whitespace"
 		Switch	item=Door mappings=[ON="Open"] icon="door"
 	}
 
-	Frame label="Lighting" {
+	Frame label="Main Room" {
 		Switch item=FrontLight mappings=[ON="On", OFF="Off"]
 		Switch item=BackLight mappings=[ON="On", OFF="Off"]
-	}
-	
-	Frame label="Power" {
-		Switch item=PowerCeiling mappings=[ON="On"]
-		Switch item=PowerWall mappings=[ON="On"]
+		Switch item=Roof mappings=[ON="Open", OFF="Close"]
 	}
 	
 	Frame  label="Computers" {
@@ -37,6 +33,12 @@ sitemap demo label="Whitespace"
 //				Switch item=StartStopView mappings=[OFF="Pause", ON="Play"] icon="musiccontrol"
 //			}	
 //		}
+		Text label="Power" icon="light" {
+			Frame label="Power" {
+				Switch item=PowerCeiling mappings=[ON="On"]
+				Switch item=PowerWall mappings=[ON="On"]
+			}
+		}
 		
 		Text label="Teracom" icon="light" {
 			Frame label="Teracom" {
