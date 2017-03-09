@@ -7,3 +7,4 @@ Switch PowerCeiling		"Front Room Power Ceiling"	(group)	{ http=">[ON:GET:http://
 Switch PowerWall		"Front Room Power Wall"		(group)	{ http=">[ON:GET:http://unipi:8080/CMD?powerWall=ON]", autoupdate="false" }
 
 Switch Roof				"Roof"						(group) { http=">[ON:GET:http://unipi:8080/CMD?roof=ON] >[OFF:GET:http://unipi:8080/CMD?roof=OFF]", autoupdate="false" }
+String Roof2			"Roof2"						(gruop) { http=">[ON:GET:http://unipi:8080/CMD?roof=ON] >[OFF:GET:http://unipi:8080/CMD?roof=OFF]", autoupdate="false"}
