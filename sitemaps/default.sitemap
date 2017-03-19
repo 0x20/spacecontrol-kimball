@@ -21,7 +21,7 @@ sitemap demo label="Whitespace"
 	Frame  label="Computers" {
 		Switch item=AllComputers mappings=[OFF="All Off"] icon="computer"
 		Switch item=Barmaid mappings=[ON="On", OFF="Off"] icon="computer"
-		Switch item=Echelon mappings=[ON="On", OFF="Off"] icon="computer"
+//		Switch item=Echelon mappings=[ON="On", OFF="Off"] icon="computer"
 		Switch item=RandomDude mappings=[ON="On", OFF="Off"] icon="computer"
 		Switch item=FlappyFlaps mappings=[OFF="Off"] icon="computer"			
 	}
