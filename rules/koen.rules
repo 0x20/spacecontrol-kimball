@@ -62,11 +62,11 @@ end
 rule "AllComputers Status"
 when
 	Item Barmaid received update or
-	Item Echelon received update or
+//	Item Echelon received update or
 	Item RandomDude received update or
 	Item FlappyFlaps received update
 then
-	if (Barmaid.state==ON || RandomDude.state==ON || Echelon.state==ON || FlappyFlaps.state==ON) { 
+	if (Barmaid.state==ON || RandomDude.state==ON || FlappyFlaps.state==ON) { // || Echelon.state==ON
 		AllComputers.postUpdate(ON)
 	} else {
 		AllComputers.postUpdate(OFF)
