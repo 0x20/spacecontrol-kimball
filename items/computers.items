@@ -1,9 +1,12 @@
 // Computers
 Group:Switch:SUM(ON, OFF) 		AllComputers 		"All Computers" 			(All)
-Switch Barmaid		"Barmaid"	(AllComputers) { nh="barmaid", wol="10.20.255.255#00:11:25:05:ce:ef", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@barmaid 'sudo shutdown -h now'", autoupdate="false" }
-//Switch Echelon	"Echelon"	(AllComputers) { nh="echelon", wol="10.20.255.255#d4:85:64:18:7a:10", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@echelon 'sudo shutdown -h now'", autoupdate="false" }
-Switch Render		"Render"	(AllComputers) { nh="render", wol="10.20.255.255#00:1d:7d:08:a0:86", http=">[OFF:GET:http://render.0x20.be:8020/]"}
-Switch RandomDude	"Random Dude"	(AllComputers) { nh="randomdude", wol="10.20.255.255#d4:85:64:aa:4c:56", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@randomdude 'sudo shutdown -h now'", autoupdate="false" }
-Switch FlappyFlaps	"FlappyFlaps"	(AllComputers) { nh="flappers", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@flappers 'sudo shutdown -h now'", autoupdate="false" }
+Switch Barmaid		"Barmaid"		(AllComputers) { nh="barmaid", wol="10.20.255.255#00:11:25:05:ce:ef", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@barmaid 'sudo shutdown -h now'", autoupdate="false" }
+Switch BaradDurTop 	"Barad-Dûr Top"		(AllComputers) { nh="hsg-barad-dur-top", wol="10.20.255.255#00:1d:7d:08:a0:86", exec="OFF:/bin/shh@@-c@@/usr/bin/ssh shutdownuser@barmaid 'sudo shutdown -h now'", autoupdate="false" }
+Switch BaradDurCenter	"Barad-Dûr Center"	(AllComputers) { nh="hsg-barad-dur-center", wol="10.20.255.255#00:1f:d0:82:c4:01", exec="OFF:/bin/shh@@-c@@/usr/bin/ssh shutdownuser@barmaid 'sudo shutdown -h now'", autoupdate="false" }
+Switch BaradDurBottom	"Barad-Dûr Bottom"	(AllComputers) { nh="hsg-barad-dur-bottom", wol="10.20.255.255#00:1f:d0:5c:19:51", exec="OFF:/bin/shh@@-c@@/usr/bin/ssh shutdownuser@barmaid 'sudo shutdown -h now'", autoupdate="false" }
+//Switch Echelon	"Echelon"		(AllComputers) { nh="echelon", wol="10.20.255.255#d4:85:64:18:7a:10", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@echelon 'sudo shutdown -h now'", autoupdate="false" }
+//Switch Render		"Render"		(AllComputers) { nh="render", wol="10.20.255.255#00:1d:7d:08:a0:86", http=">[OFF:GET:http://render.0x20.be:8020/]"}
+//Switch RandomDude	"Random Dude"		(AllComputers) { nh="randomdude", wol="10.20.255.255#d4:85:64:aa:4c:56", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@randomdude 'sudo shutdown -h now'", autoupdate="false" }
+Switch FlappyFlaps	"FlappyFlaps"		(AllComputers) { nh="flappers", exec="OFF:/bin/sh@@-c@@/usr/bin/ssh shutdownuser@flappers 'sudo shutdown -h now'", autoupdate="false" }
 
 // TODO accept new key for IP 172.22.32.16
